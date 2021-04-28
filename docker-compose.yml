@@ -17,8 +17,12 @@ services:
     image: docker.elastic.co/logstash/logstash:7.12.0
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./logstash/data/products.csv:/usr/share/logstash/data/products.csv
-      - ./logstash/pipeline/logstash_products.conf:/usr/share/logstash/pipeline/logstash_products.conf
+      # - ./logstash/data/products.csv:/usr/share/logstash/data/products.csv
+      # - ./logstash/pipeline/logstash_products.conf:/usr/share/logstash/pipeline/logstash_products.conf
+      # - ./logstash/data/products_with_features_products.csv:/usr/share/logstash/data/products_with_features_products.csv
+      # - ./logstash/pipeline/logstash_products.conf:/usr/share/logstash/pipeline/logstash_products_with_features_products.conf
+      - ./logstash/data/products_with_features_features.csv:/usr/share/logstash/data/products_with_features_features.csv
+      - ./logstash/pipeline/logstash_products_with_features_features.conf:/usr/share/logstash/pipeline/logstash_products_with_features_features.conf
     container_name: logstash
     ports:
       - "5044:5044"
